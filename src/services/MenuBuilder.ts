@@ -1,5 +1,5 @@
-import type { OpenAPISpec, OpenAPIPaths, OpenAPITag, OpenAPISchema } from '../types';
-import { isOperationName, JsonPointer, alphabeticallyByProp } from '../utils';
+import type { OpenAPIPaths, OpenAPISchema, OpenAPISpec, OpenAPITag } from '../types';
+import { alphabeticallyByProp, isOperationName, JsonPointer } from '../utils';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { GroupModel, OperationModel } from './models';
 import type { OpenAPIParser } from './OpenAPIParser';
@@ -28,6 +28,13 @@ export class MenuBuilder {
     } else {
       items.push(...MenuBuilder.getTagsItems(parser, tagsMap, undefined, undefined, options));
     }
+    items.forEach(item => {
+      item.items = item.items.sort((a, b) => {
+        const v1 = (a as any)?.operationSpec?.['x-order'] || 'zzz';
+        const v2 = (b as any)?.operationSpec?.['x-order'] || 'zzz';
+        return v1.localeCompare(v2);
+      });
+    });
     return items;
   }
 
@@ -253,6 +260,7 @@ export class MenuBuilder {
         }
       }
     }
+
     return tags;
   }
 
