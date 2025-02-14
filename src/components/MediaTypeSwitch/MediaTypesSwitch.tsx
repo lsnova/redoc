@@ -50,16 +50,20 @@ export class MediaTypesSwitch extends React.Component<MediaTypesSwitchProps> {
         children
       );
 
+    const showContentType = !!content.mediaTypes[0].name;
+
     return (
       <>
-        <Wrapper>
-          {this.props.renderDropdown({
-            value: options[activeMimeIdx].value,
-            options,
-            onChange: this.switchMedia,
-            ariaLabel: 'Content type',
-          })}
-        </Wrapper>
+        {showContentType && (
+          <Wrapper>
+            {this.props.renderDropdown({
+              value: options[activeMimeIdx].value,
+              options,
+              onChange: this.switchMedia,
+              ariaLabel: 'Content type',
+            })}
+          </Wrapper>
+        )}
         {this.props.children(content.active)}
       </>
     );

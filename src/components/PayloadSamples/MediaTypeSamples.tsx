@@ -28,10 +28,12 @@ export class MediaTypeSamples extends React.Component<PayloadSamplesProps, Media
       });
     }
   };
+
   render() {
     const { activeIdx } = this.state;
     const examples = this.props.mediaType.examples || {};
     const mimeType = this.props.mediaType.name;
+    const marginTop = `${mimeType ? 15 : 0}px`;
 
     const noSample = <NoSampleLabel>No sample</NoSampleLabel>;
 
@@ -52,7 +54,7 @@ export class MediaTypeSamples extends React.Component<PayloadSamplesProps, Media
       const description = example.description;
 
       return (
-        <SamplesWrapper>
+        <SamplesWrapper style={{ marginTop: marginTop }}>
           <DropdownWrapper>
             <DropdownLabel>Example</DropdownLabel>
             {this.props.renderDropdown({
@@ -71,7 +73,7 @@ export class MediaTypeSamples extends React.Component<PayloadSamplesProps, Media
     } else {
       const example = examples[examplesNames[0]];
       return (
-        <SamplesWrapper>
+        <SamplesWrapper style={{ marginTop: marginTop }}>
           {example.description && <Markdown source={example.description} />}
           <Example example={example} mimeType={mimeType} />
         </SamplesWrapper>
@@ -80,6 +82,4 @@ export class MediaTypeSamples extends React.Component<PayloadSamplesProps, Media
   }
 }
 
-const SamplesWrapper = styled.div`
-  margin-top: 15px;
-`;
+const SamplesWrapper = styled.div``;
