@@ -19,6 +19,7 @@ import { ResponseSamples } from '../ResponseSamples/ResponseSamples';
 import { SecurityRequirements } from '../SecurityRequirement/SecurityRequirement';
 import { SECTION_ATTR } from '../../services';
 import { OceanGrant } from '../OceanGrants/OceanGrant';
+import { QuerySamples } from '../QuerySamples/QuerySamples';
 
 const Description = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.unit * 6}px;
@@ -67,6 +68,7 @@ export const Operation = observer(({ operation }: OperationProps): JSX.Element =
           </MiddlePanel>
           <DarkRightPanel>
             {!options.pathInMiddlePanel && !isWebhook && <Endpoint operation={operation} />}
+            <QuerySamples operation={operation} />
             <RequestSamples operation={operation} />
             <ResponseSamples operation={operation} />
             <CallbackSamples callbacks={operation.callbacks} />

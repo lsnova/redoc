@@ -40,6 +40,7 @@ export interface LabelsConfig {
   downloadSpecification: string;
   responses: string;
   callbackResponses: string;
+  querySamples: string;
   requestSamples: string;
   responseSamples: string;
   oceanAnyGrant: string;

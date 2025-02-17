@@ -17,7 +17,7 @@ export const SourceCode = (props: SourceCodeProps) => {
 export const SourceCodeWithCopy = (props: SourceCodeProps) => {
   const { source, lang } = props;
   return (
-    <CopyButtonWrapper data={source}>
+    <CopyButtonWrapper data={lang === 'uri' ? source.replace(/\n/g, "") : source}>
       {({ renderCopyButton }) => (
         <SampleControlsWrap>
           <SampleControls>{renderCopyButton()}</SampleControls>

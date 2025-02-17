@@ -17,6 +17,7 @@ const labels: LabelsConfig = {
   downloadSpecification: 'Download OpenAPI specification',
   responses: 'Responses',
   callbackResponses: 'Callback responses',
+  querySamples: 'Query samples',
   requestSamples: 'Request samples',
   responseSamples: 'Response samples',
   oceanAnyGrant: 'Any grant required:',
