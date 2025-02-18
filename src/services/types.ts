@@ -45,6 +45,7 @@ export interface LabelsConfig {
   responseSamples: string;
   oceanAnyGrant: string;
   oceanAllGrants: string;
+  authorizationDescription: string;
 }
 
 export type LabelsConfigRaw = Partial<LabelsConfig>;

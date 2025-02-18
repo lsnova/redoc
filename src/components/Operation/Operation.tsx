@@ -20,6 +20,7 @@ import { SecurityRequirements } from '../SecurityRequirement/SecurityRequirement
 import { SECTION_ATTR } from '../../services';
 import { OceanGrant } from '../OceanGrants/OceanGrant';
 import { QuerySamples } from '../QuerySamples/QuerySamples';
+import { OceanAuthorizationDescription } from '../OceanAuthorizatonDescription/OceanAuthorizatonDescription';
 
 const Description = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing.unit * 6}px;
@@ -62,6 +63,7 @@ export const Operation = observer(({ operation }: OperationProps): JSX.Element =
             <SecurityRequirements securities={operation.security} />
             <OceanGrant grants={operation.oceanAnyGrant} label={'oceanAnyGrant'} />
             <OceanGrant grants={operation.oceanAllGrants} label={'oceanAllGrants'} />
+            <OceanAuthorizationDescription description={operation.authorizationDescription} />
             <Parameters parameters={operation.parameters} body={operation.requestBody} />
             <ResponsesList responses={operation.responses} />
             <CallbacksList callbacks={operation.callbacks} />

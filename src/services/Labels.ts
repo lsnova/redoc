@@ -22,6 +22,7 @@ const labels: LabelsConfig = {
   responseSamples: 'Response samples',
   oceanAnyGrant: 'Any grant required:',
   oceanAllGrants: 'All grants required:',
+  authorizationDescription: 'Authorization info:',
 };
 
 export function setRedocLabels(_labels?: LabelsConfigRaw) {

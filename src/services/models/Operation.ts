@@ -245,6 +245,11 @@ export class OperationModel implements IMenuItem {
   }
 
   @memoize
+  get authorizationDescription() {
+    return this.operationSpec?.['x-authorizationDescription'] || null;
+  }
+
+  @memoize
   get parameters() {
     const _parameters = mergeParams(
       this.parser,
