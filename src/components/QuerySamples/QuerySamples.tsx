@@ -6,6 +6,8 @@ import { RightPanelHeader, Tab, TabList, Tabs } from '../../common-elements';
 import { l } from '../../services/Labels';
 import { TabPanel } from 'react-tabs';
 import { SourceCodeWithCopy } from '../SourceCode/SourceCode';
+import { Markdown } from '../Markdown/Markdown';
+import { SamplesWrapper } from '../CallbackSamples/CallbackSamples';
 
 export interface RequestSamplesProps {
   operation: OperationModel;
@@ -31,7 +33,10 @@ export class QuerySamples extends React.Component<RequestSamplesProps> {
             </TabList>
             {examples.map((example, idx) => (
               <TabPanel key={operation.operationId + '_tab_content_' + idx}>
-                <SourceCodeWithCopy source={example.value} lang={'uri'} />
+                <SamplesWrapper style={{ marginTop: '0px' }}>
+                  {example.description && <Markdown source={example.description} />}
+                  <SourceCodeWithCopy source={example.value} lang={'uri'} />
+                </SamplesWrapper>
               </TabPanel>
             ))}
           </Tabs>
