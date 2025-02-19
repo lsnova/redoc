@@ -35,6 +35,7 @@ export const PrismDiv = styled.div`
   }
 
   /* Code blocks */
+
   pre[class*='language-'] {
     padding: 1em;
     margin: 0.5em 0;
@@ -54,6 +55,11 @@ export const PrismDiv = styled.div`
 
   .namespace {
     opacity: 0.7;
+  }
+
+  .token.query,
+  .token.path {
+    word-break: break-all;
   }
 
   .token.property,
@@ -81,6 +87,7 @@ export const PrismDiv = styled.div`
   .token.builtin,
   .token.inserted {
     color: #a0fbaa;
+
     & + a,
     & + a:visited {
       color: #4ed2ba;
@@ -117,6 +124,7 @@ export const PrismDiv = styled.div`
   .token.bold {
     font-weight: bold;
   }
+
   .token.italic {
     font-style: italic;
   }
