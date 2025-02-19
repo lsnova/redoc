@@ -3,10 +3,11 @@ import * as React from 'react';
 import {
   GrantHeader,
   GrantHeaderColumn,
-  SecuritiesColumn,
+  SecurityDetailsStyle,
   Wrap,
 } from '../SecurityRequirement/styled.elements';
 import { l } from '../../services/Labels';
+import { StyledMarkdownBlock } from '../Markdown/styled.elements';
 import { Markdown } from '../Markdown/Markdown';
 
 export interface OceanAuthorizationDescriptionProps {
@@ -19,14 +20,18 @@ export class OceanAuthorizationDescription extends React.Component<OceanAuthoriz
     const { description } = this.props;
     return (
       (description && (
-        <Wrap $expanded={false}>
-          <GrantHeaderColumn>
-            <GrantHeader>{l('authorizationDescription')}</GrantHeader>
-          </GrantHeaderColumn>
-          <SecuritiesColumn>
-            <Markdown source={description}></Markdown>
-          </SecuritiesColumn>
-        </Wrap>
+        <>
+          <Wrap $expanded={false}>
+            <GrantHeaderColumn>
+              <GrantHeader>{l('authorizationDescription')}</GrantHeader>
+            </GrantHeaderColumn>
+          </Wrap>
+          <SecurityDetailsStyle>
+            <StyledMarkdownBlock>
+              <Markdown source={description}></Markdown>
+            </StyledMarkdownBlock>
+          </SecurityDetailsStyle>
+        </>
       )) ||
       null
     );
