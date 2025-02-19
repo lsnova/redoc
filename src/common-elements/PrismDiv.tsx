@@ -60,6 +60,7 @@ export const PrismDiv = styled.div`
   .token.tag,
   .token.number,
   .token.constant,
+  .token.separator,
   .token.symbol {
     color: #4a8bb3;
   }
@@ -72,6 +73,11 @@ export const PrismDiv = styled.div`
   .token.attr-name,
   .token.string,
   .token.char,
+  .token.key,
+  .token.host,
+  .token.path,
+  .token.scheme,
+  .token.value,
   .token.builtin,
   .token.inserted {
     color: #a0fbaa;
@@ -82,6 +88,9 @@ export const PrismDiv = styled.div`
     }
   }
 
+  .token.pair,
+  .token.path-separator,
+  .token.pair-delimiter,
   .token.property.string {
     color: white;
   }

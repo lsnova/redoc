@@ -235,13 +235,7 @@ export class OperationModel implements IMenuItem {
 
   @memoize
   get queryExamples() {
-    const result = this.operationSpec?.requestBody?.['x-queryExamples'] || [];
-    return result.map(r => {
-      if (r.value) {
-        r.value = r.value.replace(/&/g, '\n&');
-      }
-      return r;
-    });
+    return this.operationSpec?.requestBody?.['x-queryExamples'] || [];
   }
 
   @memoize

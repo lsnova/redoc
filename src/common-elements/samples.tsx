@@ -42,3 +42,12 @@ export const StyledPre = styled(PrismDiv).attrs({
 
   white-space: ${({ theme }) => (theme.typography.code.wrap ? 'pre-wrap' : 'pre')};
 `;
+
+export const StyledNotPre = styled(PrismDiv)`
+  font-family: ${props => props.theme.typography.code.fontFamily};
+  font-size: ${props => props.theme.typography.code.fontSize};
+  overflow-x: auto;
+  margin: 0;
+
+  white-space: normal;
+`;
