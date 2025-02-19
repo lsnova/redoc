@@ -2,6 +2,8 @@ import { observer } from 'mobx-react';
 import * as React from 'react';
 import { LabelsConfig } from '../../services';
 import {
+  AuthHeader,
+  AuthHeaderColumn,
   GrantHeader,
   GrantHeaderColumn,
   SecuritiesColumn,
@@ -12,6 +14,7 @@ import { l } from '../../services/Labels';
 import { StyledMarkdownBlock } from '../Markdown/styled.elements';
 import { ExampleValue } from '../../common-elements/fields';
 import styled from '../../styled-components';
+import { ShelfIcon } from '../../common-elements';
 
 export interface OceanGrantsProps {
   label: keyof LabelsConfig;
@@ -32,14 +35,23 @@ export class OceanGrant extends React.Component<OceanGrantsProps, OceanGrantsSta
   render() {
     const { label, grants } = this.props;
     const { expanded } = this.state;
+    const expandable = grants.length > 5;
 
     return (
       (grants.length > 0 && (
         <>
           <Wrap $expanded={expanded}>
-            <GrantHeaderColumn>
-              <GrantHeader>{l(label)}</GrantHeader>
-            </GrantHeaderColumn>
+            {expandable ? (
+              <AuthHeaderColumn onClick={this.trigger(!expanded)}>
+                <AuthHeader>{l(label)}</AuthHeader>
+                <ShelfIcon size={'1.3em'} direction={expanded ? 'down' : 'right'} />
+              </AuthHeaderColumn>
+            ) : (
+              <GrantHeaderColumn>
+                <GrantHeader>{l(label)}</GrantHeader>
+              </GrantHeaderColumn>
+            )}
+
             {!expanded && (
               <SecuritiesColumn>
                 <div style={{ wordWrap: 'break-word' }}>
@@ -51,9 +63,7 @@ export class OceanGrant extends React.Component<OceanGrantsProps, OceanGrantsSta
                       </StyledMarkdownBlock>
                     ))}
                   {grants.length > 5 && !expanded && (
-                    <ButtonWrapper>
-                      <button onClick={this.trigger(true)}>...and {grants.length - 5} more</button>
-                    </ButtonWrapper>
+                    <ButtonWrapper>...and {grants.length - 5} more</ButtonWrapper>
                   )}
                 </div>
               </SecuritiesColumn>
