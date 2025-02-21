@@ -31,7 +31,8 @@ export function ScrollToExample({ operationRef }: Readonly<ScrollToExampleProps>
   const operation = store?.menu?.flatItems
     .filter(e => e instanceof OperationModel)
     .find(e => (e as any).operationId === operationRef);
-  if (operation === null) {
+  if (!operation) {
+    console.error(`cannot find operation with operationId=${operationRef}`);
     return null;
   }
   const onClick = () => {
