@@ -43,7 +43,7 @@ export class Redoc extends React.Component<RedocProps> {
           <OptionsProvider value={options}>
             <RedocWrap className="redoc-wrap">
               <StickyResponsiveSidebar menu={menu} className="menu-content">
-                <ApiLogo info={spec.info} />
+                <ApiLogo info={spec.info} logoUrl={options.logoUrl} logoHref={options.logoHref}/>
                 {(!options.disableSearch && (
                   <SearchBox
                     search={search!}
