@@ -45,7 +45,7 @@ export class MediaTypeModel {
           info.encoding,
         ),
       };
-    } else if (isJsonLike(name)) {
+    } else if (isJsonLike(name) && (info['x-generateMissingExample'] ?? false)) {
       this.generateExample(parser, info);
     }
   }

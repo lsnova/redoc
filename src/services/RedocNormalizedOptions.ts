@@ -10,6 +10,8 @@ export interface RedocRawOptions {
   theme?: ThemeInterface;
   scrollYOffset?: number | string | (() => number);
   hideHostname?: boolean | string;
+  logoUrl?: string;
+  logoHref?: string;
   expandResponses?: string | 'all';
   requiredPropsFirst?: boolean | string;
   sortPropsAlphabetically?: boolean | string;
@@ -214,6 +216,8 @@ export class RedocNormalizedOptions {
 
   theme: ResolvedThemeInterface;
   scrollYOffset: () => number;
+  logoUrl?: string;
+  logoHref?: string;
   hideHostname: boolean;
   expandResponses: { [code: string]: boolean } | 'all';
   requiredPropsFirst: boolean;
@@ -298,6 +302,8 @@ export class RedocNormalizedOptions {
     this.untrustedSpec = argValueToBoolean(raw.untrustedSpec);
     this.hideDownloadButton = argValueToBoolean(raw.hideDownloadButton);
     this.downloadFileName = raw.downloadFileName;
+    this.logoUrl = raw.logoUrl;
+    this.logoHref = raw.logoHref;
     this.downloadDefinitionUrl = raw.downloadDefinitionUrl;
     this.disableSearch = argValueToBoolean(raw.disableSearch);
     this.onlyRequiredInSamples = argValueToBoolean(raw.onlyRequiredInSamples);

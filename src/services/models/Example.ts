@@ -9,6 +9,7 @@ export class ExampleModel {
   summary?: string;
   description?: string;
   externalValueUrl?: string;
+  operationRef?: string;
 
   constructor(
     parser: OpenAPIParser,
@@ -20,6 +21,7 @@ export class ExampleModel {
     this.value = example.value;
     this.summary = example.summary;
     this.description = example.description;
+    this.operationRef = example['x-operationRef'] || undefined;
     if (example.externalValue) {
       this.externalValueUrl = new URL(example.externalValue, parser.specUrl).href;
     }

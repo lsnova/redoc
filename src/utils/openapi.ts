@@ -410,6 +410,10 @@ export function langFromMime(contentType: string): string {
     return 'tex';
   }
 
+  if (contentType === '') {
+    return 'uri';
+  }
+
   return 'clike';
 }
 

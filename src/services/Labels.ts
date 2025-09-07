@@ -17,8 +17,12 @@ const labels: LabelsConfig = {
   downloadSpecification: 'Download OpenAPI specification',
   responses: 'Responses',
   callbackResponses: 'Callback responses',
+  querySamples: 'Query samples',
   requestSamples: 'Request samples',
   responseSamples: 'Response samples',
+  oceanAnyGrant: 'Any grant required:',
+  oceanAllGrants: 'All grants required:',
+  authorizationDescription: 'Authorization info:',
 };
 
 export function setRedocLabels(_labels?: LabelsConfigRaw) {

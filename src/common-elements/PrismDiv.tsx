@@ -35,6 +35,7 @@ export const PrismDiv = styled.div`
   }
 
   /* Code blocks */
+
   pre[class*='language-'] {
     padding: 1em;
     margin: 0.5em 0;
@@ -56,10 +57,16 @@ export const PrismDiv = styled.div`
     opacity: 0.7;
   }
 
+  .token.query,
+  .token.path {
+    word-break: break-all;
+  }
+
   .token.property,
   .token.tag,
   .token.number,
   .token.constant,
+  .token.separator,
   .token.symbol {
     color: #4a8bb3;
   }
@@ -72,9 +79,15 @@ export const PrismDiv = styled.div`
   .token.attr-name,
   .token.string,
   .token.char,
+  .token.key,
+  .token.host,
+  .token.path,
+  .token.scheme,
+  .token.value,
   .token.builtin,
   .token.inserted {
     color: #a0fbaa;
+
     & + a,
     & + a:visited {
       color: #4ed2ba;
@@ -82,6 +95,9 @@ export const PrismDiv = styled.div`
     }
   }
 
+  .token.pair,
+  .token.path-separator,
+  .token.pair-delimiter,
   .token.property.string {
     color: white;
   }
@@ -108,6 +124,7 @@ export const PrismDiv = styled.div`
   .token.bold {
     font-weight: bold;
   }
+
   .token.italic {
     font-style: italic;
   }

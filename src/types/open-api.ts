@@ -85,6 +85,8 @@ export interface OpenAPIOperation {
   servers?: OpenAPIServer[];
   'x-codeSamples'?: OpenAPIXCodeSample[];
   'x-code-samples'?: OpenAPIXCodeSample[]; // deprecated
+  'x-hasAnyGrant': string[];
+  'x-hasAllGrants': string[];
 }
 
 export interface OpenAPIParameter {

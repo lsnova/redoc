@@ -1,4 +1,4 @@
-import { action, observable, makeObservable } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 
 import {
   extractExtensions,
@@ -18,13 +18,13 @@ import { CallbackModel } from './Callback';
 import { FieldModel } from './Field';
 import { RequestBodyModel } from './RequestBody';
 import { ResponseModel } from './Response';
+import type { ContentItemModel, ExtendedOpenAPIOperation, IMenuItem } from '../types';
 import { SideNavStyleEnum } from '../types';
 
 import type { OpenAPIExternalDocumentation, OpenAPIServer, OpenAPIXCodeSample } from '../../types';
 import type { OpenAPIParser } from '../OpenAPIParser';
 import type { RedocNormalizedOptions } from '../RedocNormalizedOptions';
 import type { MediaContentModel } from './MediaContent';
-import type { ContentItemModel, ExtendedOpenAPIOperation, IMenuItem } from '../types';
 
 export interface XPayloadSample {
   lang: 'payload';
@@ -221,6 +221,26 @@ export class OperationModel implements IMenuItem {
     }
 
     return samples;
+  }
+
+  @memoize
+  get oceanAnyGrant() {
+    return this.operationSpec['x-hasAnyGrant'] || [];
+  }
+
+  @memoize
+  get oceanAllGrants() {
+    return this.operationSpec['x-hasAllGrants'] || [];
+  }
+
+  @memoize
+  get queryExamples() {
+    return this.operationSpec?.requestBody?.['x-queryExamples'] || [];
+  }
+
+  @memoize
+  get authorizationDescription() {
+    return this.operationSpec?.['x-authorizationDescription'] || null;
   }
 
   @memoize

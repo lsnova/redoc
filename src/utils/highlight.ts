@@ -22,6 +22,7 @@ import 'prismjs/components/prism-sql.js';
 import 'prismjs/components/prism-swift.js';
 import 'prismjs/components/prism-yaml.js';
 import 'prismjs/components/prism-csv.js';
+import 'prismjs/components/prism-uri.js';
 
 const DEFAULT_LANG = 'clike';
 

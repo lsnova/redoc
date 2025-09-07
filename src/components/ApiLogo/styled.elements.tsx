@@ -18,4 +18,4 @@ const Link = styled.a`
 `;
 
 // eslint-disable-next-line react/display-name
-export const LinkWrap = url => Component => <Link href={url}>{Component}</Link>;
+export const LinkWrap = url => Component => <Link target="_blank" href={url}>{Component}</Link>;

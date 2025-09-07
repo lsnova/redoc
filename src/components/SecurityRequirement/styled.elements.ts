@@ -76,6 +76,10 @@ export const AuthHeaderColumn = styled.div`
   cursor: pointer;
 `;
 
+export const GrantHeaderColumn = styled.div`
+  flex: 1 1 auto;
+`;
+
 export const SecuritiesColumn = styled.div<{ $expanded?: boolean }>`
   width: ${props => props.theme.schema.defaultDetailsWidth};
   text-overflow: ellipsis;
@@ -94,6 +98,11 @@ export const SecuritiesColumn = styled.div<{ $expanded?: boolean }>`
 `;
 
 export const AuthHeader = styled(UnderlinedHeader)`
+  display: inline-block;
+  margin: 0;
+`;
+
+export const GrantHeader = styled(UnderlinedHeader)`
   display: inline-block;
   margin: 0;
 `;
